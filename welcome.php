@@ -13,7 +13,8 @@ if (isset($_SESSION['user'])) {
     <?php include('header.inc'); ?>
 
     <main>
-        <?php echo "Welcome, " . $_SESSION['user']; ?>
+        <h2><?php echo "Welcome, " . htmlspecialchars($_SESSION['user']) . "!"; ?></h2>
+        <p>You have successfully logged in.</p>
     </main>
 
     <?php include('footer.inc'); ?>
@@ -21,6 +22,7 @@ if (isset($_SESSION['user'])) {
 </html>
 <?php
 } else {
-    header('Location: login.php');
+    header('Location: login.html');
+    exit();
 }
 ?>

@@ -6,15 +6,25 @@
     <title>Login</title>
 </head>
 <body>
+    <?php include('header.inc'); ?>
 
-<form method="post" action="process.php">
-<label for="username">Username:</label>
-<input type="text" name="username" required><br>
+    <main>
+        <?php if (isset($_GET['error'])) { ?>
+            <p style="color:red;">Invalid username or password. Please try again.</p>
+        <?php } ?>
 
-<label for="password">Password:</label>
-<input type="password" name="password" required><br>
+        <form method="post" action="process.php">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
 
-<input type="hidden" name="token" value="abc123">
-<input type="submit" value="Login">
-</form>
-    
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <input type="hidden" name="token" value="A106194323">
+            <input type="submit" value="Login">
+        </form>
+    </main>
+
+    <?php include('footer.inc'); ?>
+</body>
+</html>

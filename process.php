@@ -1,12 +1,14 @@
 <?php
 session_start();
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = isset($_POST['username']) ? $_POST['username'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
 
-if ($username == 'admin' && $password == 'password123') {
+if ($username == 'Abdullah' && $password == '106194323') {
     $_SESSION['user'] = $username;
     header('Location: welcome.php');
+    exit();
 } else {
-    echo "Invalid login. <a href='login.html'>Try again</a>";
+    header('Location: login.html?error=1');
+    exit();
 }
 ?>
