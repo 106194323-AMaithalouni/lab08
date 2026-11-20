@@ -6,12 +6,16 @@
     <title>Login</title>
 </head>
 <body>
-    <?php include('header.inc'); ?>
+    <header>
+        <h1>Lab Tasks: PHP Login Session</h1>
+        <nav>
+            <a href="login.html">Login Form</a>
+            <a href="welcome.php">Welcome Page</a>
+        </nav>
+    </header>
 
     <main>
-        <?php if (isset($_GET['error'])) { ?>
-            <p style="color:red;">Invalid username or password. Please try again.</p>
-        <?php } ?>
+        <p id="error" style="color:red;"></p>
 
         <form method="post" action="process.php">
             <label for="username">Username:</label>
@@ -25,6 +29,14 @@
         </form>
     </main>
 
-    <?php include('footer.inc'); ?>
+    <footer>
+        <p>&copy; 2026 Abdullah - Lab: PHP Login Session and Session Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+        if (window.location.search.indexOf("error=1") !== -1) {
+            document.getElementById("error").textContent = "Invalid username or password. Please try again.";
+        }
+    </script>
 </body>
 </html>
